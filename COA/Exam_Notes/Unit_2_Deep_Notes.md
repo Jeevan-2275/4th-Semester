@@ -1,7 +1,8 @@
 # Computer Organization & Architecture - Unit 2: Basic Computer Organization Deep Notes
 
 > **Target:** 7-Mark Theoretical Questions & MCQs.
-> **Focus:** Timing Diagrams, Instruction Cycle, Interrupts, Addressing Modes.
+> **Focus:** Timing Diagrams, Instruction Cycle, Interrupts, Stack, Formats.
+> **Source:** Merged content from Theory & Deep Notes.
 
 ---
 
@@ -14,14 +15,14 @@ The **Instruction Cycle** is the process by which a computer retrieves a program
 3.  **Execute:** Perform the operation (and optional Interrupt).
 
 **Phases & Timing Signals:**
-*   **T0:** AR ← PC (Place address of next instruction in AR).
-*   **T1:** IR ← M[AR], PC ← PC + 1 (Fetch instruction, Increment PC).
-*   **T2:** Decode Opcode (IR 12-14), AR ← IR(0-11), I ← IR(15).
+*   **T0:** `AR ← PC` (Place next instruction address in AR).
+*   **T1:** `IR ← M[AR], PC ← PC + 1` (Fetch instruction, Increment PC).
+*   **T2:** Decode Opcode (IR 12-14), `AR ← IR(0-11)`, `I ← IR(15)`.
 *   **T3:**
     *   If **Register/IO** (Opcode=111): Execute immediately.
     *   If **Memory Ref** (Opcode<111):
-        *   **I=0 (Direct):** Nothing (Effective Address is ready).
-        *   **I=1 (Indirect):** AR ← M[AR] (Fetch effective address).
+        *   **I=0 (Direct):** Effective Address is ready.
+        *   **I=1 (Indirect):** `AR ← M[AR]` (Fetch effective address).
 *   **T4:** Execution Phase starts.
 
 > **Instruction Cycle Flowchart:**
@@ -44,7 +45,7 @@ The **Instruction Cycle** is the process by which a computer retrieves a program
 >     
 >     Ind --> Exec
 >     
->     IO --> End([Cycle Complte: SC<-0])
+>     IO --> End([Cycle Complete: SC<-0])
 >     Reg --> End
 >     Exec --> End
 >     End --> Start
@@ -57,23 +58,19 @@ The **Instruction Cycle** is the process by which a computer retrieves a program
 **Answer:**
 A **Common Bus System** connects the registers and memory to allow efficient data transfer. It uses **Multiplexers (MUX)** to select which register puts data onto the bus.
 
-**Selection Logic (S2, S1, S0):**
-The selection lines determine which register's data is placed on the bus.
-
-| S2 | S1 | S0 | Selected Register | description |
-| :---: | :---: | :---: | :---: | :--- |
-| 0 | 0 | 0 | **None** | No Output |
-| 0 | 0 | 1 | **AR** | Address Register |
-| 0 | 1 | 0 | **PC** | Program Counter |
-| 0 | 1 | 1 | **DR** | Data Register |
-| 1 | 0 | 0 | **AC** | Accumulator |
-| 1 | 0 | 1 | **IR** | Instruction Register |
-| 1 | 1 | 0 | **TR** | Temp Register |
-| 1 | 1 | 1 | **Memory** | Read from RAM |
+| S2 | S1 | S0 | Selected Register |
+| :---: | :---: | :---: | :--- |
+| 0 | 0 | 0 | **None** |
+| 0 | 0 | 1 | **AR** (Address Reg) |
+| 0 | 1 | 0 | **PC** (Program Counter) |
+| 0 | 1 | 1 | **DR** (Data Reg) |
+| 1 | 0 | 0 | **AC** (Accumulator) |
+| 1 | 0 | 1 | **IR** (Instruction Reg) |
+| 1 | 1 | 1 | **Memory** (Read) |
 
 **Operation:**
-1.  **Source:** Control unit sends signals to Select Lines (S0-S2) to choose the *Source* register.
-2.  **Destination:** Control unit activates the **LOAD** signal of the *Destination* register to receive data from the bus.
+1.  **Source:** Control unit sends signals to Select Lines (S0-S2) to choose the *Source*.
+2.  **Destination:** Control unit activates the **LOAD** signal of the *Destination* register to receive data.
 
 ---
 
@@ -84,93 +81,96 @@ An **Interrupt** is a signal from an external device requesting the CPU's attent
 
 **The Interrupt Cycle (Hardware):**
 If `IEN=1` (Interrupt Enable) and a Flag (FGI/FGO) is set:
-1.  **Save Return Address:** The current PC (return address) is stored at memory location **0**.
-    *   `M[0] ← PC`
-2.  **Jump to ISR:** Program Counter is set to address **1**.
-    *   `PC ← 1`
-3.  **Disable Interrupts:** `IEN ← 0` (to prevent nested interrupts initially).
-4.  **Reset Flag:** The interrupt flag (R) is cleared.
+1.  **Save Return Address:** `M[0] ← PC` (Current PC saved at memory location 0).
+2.  **Jump to ISR:** `PC ← 1` (Start Service Routine from address 1).
+3.  **Disable Interrupts:** `IEN ← 0` (Prevent nested interrupts).
+4.  **Reset Flag:** Clear interrupt flag (R).
 
-**Difference: Interrupt vs Subroutine Call**
-
-| Feature | Subroutine Call (BSA) | Interrupt Request |
+| Feature | Subroutine Call (BSA) | Interrupt Cycle |
 | :--- | :--- | :--- |
-| **Initiator** | Software (Program instruction) | Hardware (External device) |
-| **When?** | At specific point in code | Asynchronous (Any time) |
-| **Return Addr** | Saved at Effective Address | Always saved at **Location 0** |
-| **Service Addr** | Specified in instruction | Always starts at **Location 1** |
-| **Purpose** | Code reuse/Modularity | Handle I/O, Errors |
+| **Initiator** | Software (Instruction) | Hardware (External Device) |
+| **Return Addr** | Saved at Effective Addr | Always saved at **Location 0** |
+| **Service Addr** | Specified in Instruction | Always starts at **Location 1** |
 
 ---
 
-## Q4: Explain Addressing Modes with examples. (7 Marks)
+## Q4: Explain Stack Organization (Register vs Memory Stack). (7 Marks)
 
 **Answer:**
-Addressing modes specify how the operand is chosen during program execution.
+A **Stack** is a LIFO (Last-In First-Out) struture.
 
-| Mode | Symbol | Effective Address (EA) Calculations | Example |
-| :--- | :--- | :--- | :--- |
-| **Immediate** | `#OP` | Operand is in instruction | `ADD #5` (Add 5 to AC) |
-| **Direct** | `Addr` | EA = Address Field | `ADD 500` (Add M[500] to AC) |
-| **Indirect** | `@Addr` | EA = M[Address Field] | `ADD @500` (Pointer at 500) |
-| **Register** | `R` | EA = Register | `ADD R1` (Add R1 to AC) |
-| **Relative** | `PC+` | EA = PC + Offset | `JMP +10` (Jump 10 forward) |
-| **Indexed** | `X(R)` | EA = Base Addr + Index Reg | `LOAD 100(R1)` (Arrays) |
+**1. Register Stack (CPU Internal):**
+*   Organized as a collection of registers.
+*   **PUSH:** `SP ← SP + 1`, `M[SP] ← DR`. (Increments SP).
+*   **POP:** `DR ← M[SP]`, `SP ← SP - 1`. (Decrements SP).
+*   **Status:** Checks for Overflow (Full) and Underflow (Empty).
 
-**Importance:**
-*   **Immediate:** Fast constants.
-*   **Indirect:** Pointers and passing parameters.
-*   **Relative:** Relocatable code and branching (loops).
-*   **Indexed:** Iterating through Arrays.
+**2. Memory Stack (RAM Area):**
+*   Allocated in a portion of adjacent memory cells.
+*   **PUSH:** `SP ← SP - 1`, `M[SP] ← DR`. (Decrements SP - Grows Down).
+*   **POP:** `DR ← M[SP]`, `SP ← SP + 1`. (Increments SP).
+
+**Key Difference:** Register stack is faster but limited in size. Memory stack is larger but slower.
 
 ---
 
-## Q2: Hardwired vs Micro-programmed Control Unit. (7 Marks)
+## Q5: Compare Instruction Formats (3, 2, 1, 0 Address). (7 Marks)
+
+Number of addresses in instruction determines the organization.
+
+| Format | Instruction Example | Operation | Used In |
+| :--- | :--- | :--- | :--- |
+| **3-Address** | `ADD R1, A, B` | `R1 ← M[A] + M[B]` | General Register Org |
+| **2-Address** | `ADD R1, B` | `R1 ← R1 + M[B]` | Commercial PCs |
+| **1-Address** | `ADD B` | `AC ← AC + M[B]` | Accumulator Org |
+| **0-Address** | `ADD` | `Pop A, B; Push(A+B)` | Stack Org |
+
+---
+
+## Q6: Explain Addressing Modes with examples. (7 Marks)
+
+| Mode | Symbol | Effective Address (EA) | Example |
+| :--- | :--- | :--- | :--- |
+| **Immediate** | `#OP` | Operand in instruction | `MOV R1, #5` |
+| **Direct** | `Addr` | EA = Address Field | `LDA 1000` |
+| **Indirect** | `@Addr` | EA = M[Address Field] | `LDA @1000` |
+| **Register** | `R` | EA = Register | `ADD R1` |
+| **Relative** | `PC+` | EA = PC + Offset | `JMP +10` |
+| **Indexed** | `X(R)` | EA = Base + Index Reg | `LD 100(R1)` |
+
+---
+
+## Q7: Hardwired vs Micro-programmed Control Unit. (7 Marks)
 
 | Feature | Hardwired Control | Micro-programmed Control |
 | :--- | :--- | :--- |
-| **Design** | Uses Gates, Flip-flops, Decoders | Uses Control Memory (ROM) |
-| **Speed** | **Faster** (Combinational logic) | **Slower** (Memory access needed) |
-| **Flexibility** | Rigid (Hard to modify) | **Flexible** (Just update ROM code) |
-| **Complexity** | Complex wiring for large sets | Structured and organized |
-| **Cost** | More expensive implementation | Cheaper for complex sets (CISC) |
-| **Usage** | RISC Processors | CISC Processors |
+| **Design** | Fixed Logic Gates/Flip-Flops | Control Memory (ROM) + Microcode |
+| **Speed** | **Faster** | **Slower** (Memory access) |
+| **Flexibility** | Rigid (Rewiring needed) | **Flexible** (Update firmware) |
+| **Architecture** | RISC | CISC |
+
+---
+
+## Q8: RISC vs CISC Architecture. (7 Marks)
+
+| Feature | RISC (Reduced Instruction Set) | CISC (Complex Instruction Set) |
+| :--- | :--- | :--- |
+| **Instructions** | Simple, Single-cycle, Fixed length | Complex, Multi-cycle, Variable length |
+| **Registers** | Large Register File | Few Registers |
+| **Logic** | Hardwired Control | Micro-programmed Control |
+| **Example** | ARM, MIPS (Mobile) | x86 (Desktop) |
 
 ---
 
 ## Unit 2 Important MCQs
 
-1.  **Which register selects the memory address?**
-    *   a) IR
-    *   b) **AR (Address Register)**
-    *   c) PC
-    *   d) DR
-    *   *Reason: AR connects directly to the address bus of the memory.*
-
-2.  **During the Fetch cycle (T0), the operation is:**
-    *   a) IR ← M[AR]
-    *   b) **AR ← PC**
-    *   c) PC ← PC + 1
-    *   d) AR ← 0
-    *   *Reason: First step is always moving the Program Counter to Address Register.*
-
-3.  **The return address for an interrupt is stored at:**
-    *   a) Stack
-    *   b) **Memory Location 0**
-    *   c) Memory Location 1
-    *   d) Variable
-    *   *Reason: In Basic Computer, hardware automatically saves PC to address 0.*
-
-4.  **Which addressing mode is best for Arrays?**
-    *   a) Direct
-    *   b) Relative
-    *   c) **Indexed Addressing**
-    *   d) Register Indirect
-    *   *Reason: Index register makes iterating through elements easy.*
-
-5.  **One-Address instructions use which register implicitly?**
-    *   a) PC
-    *   b) **AC (Accumulator)**
-    *   c) IR
-    *   d) DR
-    *   *Note: e.g., `ADD X` means `AC = AC + M[X]`.*
+1.  **Which register holds the address of the next instruction?**
+    *   **PC (Program Counter)**
+2.  **During Fetch (T0), the transfer is:**
+    *   **AR ← PC**
+3.  **Return address for Interrupt is stored at:**
+    *   **Memory Location 0**
+4.  **Addressing mode used for Arrays:**
+    *   **Indexed Addressing**
+5.  **0-Address instructions operate on:**
+    *   **Stack (Top of Stack)**
