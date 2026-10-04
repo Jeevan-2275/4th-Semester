@@ -1,0 +1,36 @@
+1}CI/CD =>1]GITHU.ACTIONS ,2]JENKINS
+2}Conterization =>1]Docker,Alternatives 3
+kubernatives alternative 
+
+
+16/12/2025 => CLOUD 
+
+
+in 2005 own server cloud provided virtulization 
+  
+CONTERiaztion 
+
+ONPREMISES
+
+1}IAaS PROVIDE databases 
+they provide infrastr. but they initial cost so high and easily manage . small  player not allowed.
+
+SAAS
+
+virtulization 
+
+2}EC2
+AWS Services
+AWS provides saas
+
+INFRAstr.  as a service provide  own server 
+
+identity management service
+s3  
+relational compute
+
+
+
+
+
+
