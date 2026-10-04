@@ -2,7 +2,7 @@
 
 **Subject:** Design and Analysis of Algorithms  
 **Pattern:** Multiple Choice Questions (MCQs) with Detailed Explanations  
-**Coverage:** 100% Exhaustive Topic Coverage across Units 1 to 5  
+**Coverage:** 100% Exhaustive Topic Coverage across ALL Units (Units 1 to 5)  
 
 ---
 
@@ -40,11 +40,19 @@
 **Answer:** (A) $O(1) < O(\log n) < O(\sqrt{n}) < O(n) < O(n \log n) < O(n^2) < O(2^n) < O(n!)$  
 **Explanation:** Correct growth rate ranking is constant $<$ logarithmic $<$ square-root $<$ linear $<$ linearithmic $<$ quadratic $<$ exponential $<$ factorial.
 
+#### Q5. Karatsuba's algorithm multiplies two $n$-digit integers in time complexity:
+- (A) $O(n^2)$
+- (B) $O(n^{\log_2 3}) \approx O(n^{1.585})$
+- (C) $O(n \log n)$
+- (D) $O(n^3)$
+**Answer:** (B) $O(n^{\log_2 3}) \approx O(n^{1.585})$  
+**Explanation:** Karatsuba reduces integer multiplication from 4 sub-products to 3 sub-products, running in $O(n^{\log_2 3}) \approx O(n^{1.585})$ time.
+
 ---
 
 ## 💡 Unit 3 & 4: Greedy Strategy & Dynamic Programming
 
-#### Q5. What is the main structural difference between Dynamic Programming (DP) and Divide-and-Conquer?
+#### Q6. What is the main structural difference between Dynamic Programming (DP) and Divide-and-Conquer?
 - (A) DP splits problems into independent subproblems; Divide-and-Conquer solves overlapping subproblems.
 - (B) DP solves overlapping subproblems by storing results (memoization/tabulation); Divide-and-Conquer solves independent subproblems recursively.
 - (C) DP guarantees greedy choice property; Divide-and-Conquer does not.
@@ -52,7 +60,7 @@
 **Answer:** (B) DP solves overlapping subproblems by storing results (memoization/tabulation); Divide-and-Conquer solves independent subproblems recursively.  
 **Explanation:** DP is designed for problems with overlapping subproblems and optimal substructure, avoiding redundant computations by caching subproblem solutions.
 
-#### Q6. Why can Fractional Knapsack be solved greedily in $O(n \log n)$, while 0/1 Knapsack requires Dynamic Programming $O(n W)$?
+#### Q7. Why can Fractional Knapsack be solved greedily in $O(n \log n)$, while 0/1 Knapsack requires Dynamic Programming $O(n W)$?
 - (A) Fractional Knapsack allows taking partial items based on value-to-weight ratio; 0/1 Knapsack enforces binary choice (0 or 1), generating overlapping subproblems.
 - (B) 0/1 Knapsack has no optimal substructure.
 - (C) Fractional Knapsack has an exponential state space.
@@ -60,7 +68,7 @@
 **Answer:** (A) Fractional Knapsack allows taking partial items based on value-to-weight ratio; 0/1 Knapsack enforces binary choice (0 or 1), generating overlapping subproblems.  
 **Explanation:** Greedy choice works for Fractional Knapsack because partial items can be taken to fill remaining capacity. For 0/1 Knapsack, taking a high-ratio item may leave unusable empty space, requiring DP.
 
-#### Q7. Which Minimum Spanning Tree (MST) algorithm uses a Disjoint Set Union (DSU / Union-Find) data structure to detect cycles while greedily processing edges in ascending weight order?
+#### Q8. Which Minimum Spanning Tree (MST) algorithm uses a Disjoint Set Union (DSU / Union-Find) data structure to detect cycles while greedily processing edges in ascending weight order?
 - (A) Prim's Algorithm
 - (B) Kruskal's Algorithm
 - (C) Dijkstra's Algorithm
@@ -68,7 +76,7 @@
 **Answer:** (B) Kruskal's Algorithm  
 **Explanation:** Kruskal's algorithm sorts all edges by weight and adds edges using Union-Find to prevent cycles in $O(E \log E)$ time.
 
-#### Q8. What is the time complexity to find the Longest Common Subsequence (LCS) of two strings of lengths $m$ and $n$ using Dynamic Programming?
+#### Q9. What is the time complexity to find the Longest Common Subsequence (LCS) of two strings of lengths $m$ and $n$ using Dynamic Programming?
 - (A) $O(m + n)$
 - (B) $O(m \cdot n)$
 - (C) $O(2^{m+n})$
@@ -76,11 +84,19 @@
 **Answer:** (B) $O(m \cdot n)$  
 **Explanation:** DP LCS builds a 2D table of size $(m+1) \times (n+1)$, calculating each entry in $O(1)$ time $\implies O(m \cdot n)$ total time.
 
+#### Q10. Dijkstra's Shortest Path algorithm fails or produces incorrect results under which condition?
+- (A) Graph has directed edges
+- (B) Graph contains negative edge weights
+- (C) Graph is a tree
+- (D) Graph has multiple connected components
+**Answer:** (B) Graph contains negative edge weights  
+**Explanation:** Dijkstra assumes adding an edge never decreases total path cost (greedy choice). Negative edge weights violate this assumption, requiring Bellman-Ford instead.
+
 ---
 
 ## 🔤 Unit 5: String Matching & Complexity Classes (P, NP, NP-Hard, NP-Complete)
 
-#### Q9. In the Knuth-Morris-Pratt (KMP) string matching algorithm, what does the Longest Proper Prefix which is also Suffix (LPS) array store?
+#### Q11. In the Knuth-Morris-Pratt (KMP) string matching algorithm, what does the Longest Proper Prefix which is also Suffix (LPS) array store?
 - (A) The hash values of pattern substrings.
 - (B) The length of the longest proper prefix of $P[0 \dots i]$ that is also a suffix of $P[0 \dots i]$.
 - (C) The ASCII character counts of pattern $P$.
@@ -88,7 +104,7 @@
 **Answer:** (B) The length of the longest proper prefix of $P[0 \dots i]$ that is also a suffix of $P[0 \dots i]$.  
 **Explanation:** The LPS table ($\pi$) allows KMP to shift the pattern upon mismatch without moving the text index $i$ backward, guaranteeing $O(n + m)$ linear time.
 
-#### Q10. What is the formal definition of Class NP?
+#### Q12. What is the formal definition of Class NP?
 - (A) The set of decision problems solvable in non-polynomial time.
 - (B) The set of decision problems solvable in polynomial time $O(n^k)$ by a deterministic Turing Machine.
 - (C) The set of decision problems whose proposed solutions can be verified in polynomial time $O(n^k)$ by a deterministic Turing Machine.
@@ -96,7 +112,7 @@
 **Answer:** (C) The set of decision problems whose proposed solutions can be verified in polynomial time $O(n^k)$ by a deterministic Turing Machine.  
 **Explanation:** Class NP stands for Nondeterministic Polynomial time. A problem belongs to NP if a certificate/hint can be verified in polynomial time.
 
-#### Q11. A decision problem $B$ is formally defined as **NP-Complete** if it satisfies which two conditions?
+#### Q13. A decision problem $B$ is formally defined as **NP-Complete** if it satisfies which two conditions?
 - (A) $B \in P$ and $B \in NP$
 - (B) $B \in NP$ and $B$ is NP-Hard ($\forall L \in NP, L \le_P B$)
 - (C) $B$ is undecidable and $B \notin NP$
@@ -104,7 +120,7 @@
 **Answer:** (B) $B \in NP$ and $B$ is NP-Hard ($\forall L \in NP, L \le_P B$)  
 **Explanation:** NP-Complete problems are the intersection of NP and NP-Hard ($NPC = NP \cap NP\text{-Hard}$). They are verifiable in polynomial time $O(n^k)$ and at least as hard as any problem in NP.
 
-#### Q12. Which theorem established that the Boolean Satisfiability Problem (SAT) is the first ever proven NP-Complete problem?
+#### Q14. Which theorem established that the Boolean Satisfiability Problem (SAT) is the first ever proven NP-Complete problem?
 - (A) Master Theorem
 - (B) Cook-Levin Theorem
 - (C) Church-Turing Thesis
@@ -112,7 +128,7 @@
 **Answer:** (B) Cook-Levin Theorem  
 **Explanation:** Proven by Stephen Cook (1971) and Leonid Levin (1973), the Cook-Levin Theorem proved that SAT is NP-Complete by encoding non-deterministic Turing Machine computations into Boolean logic formulas.
 
-#### Q13. How does the Rabin-Karp string matching algorithm achieve $O(1)$ average hash updates when sliding the text window?
+#### Q15. How does the Rabin-Karp string matching algorithm achieve $O(1)$ average hash updates when sliding the text window?
 - (A) Re-calculating full string hashes from scratch.
 - (B) Using a Rolling Hash formula $t_{s+1} = (d(t_s - T[s]\cdot h) + T[s+m]) \pmod q$.
 - (C) Sorting window characters alphabetically.
@@ -120,12 +136,20 @@
 **Answer:** (B) Using a Rolling Hash formula $t_{s+1} = (d(t_s - T[s]\cdot h) + T[s+m]) \pmod q$  
 **Explanation:** Rabin-Karp uses a rolling hash polynomial equation that subtracts the outgoing character and adds the incoming character in $O(1)$ constant time.
 
-#### Q14. What is the fundamental difference between an NP-Complete problem and an NP-Hard problem?
+#### Q16. What is the fundamental difference between an NP-Complete problem and an NP-Hard problem?
 - (A) NP-Complete problems are in Class P; NP-Hard problems are not.
 - (B) NP-Complete problems must be in Class NP (verifiable in $O(n^k)$); NP-Hard problems do NOT need to be in Class NP (can be optimization or undecidable).
 - (C) NP-Hard problems are solvable in $O(n)$; NP-Complete problems take $O(n^2)$.
 - (D) There is no difference; the terms are identical.
 **Answer:** (B) NP-Complete problems must be in Class NP (verifiable in $O(n^k)$); NP-Hard problems do NOT need to be in Class NP (can be optimization or undecidable).  
 **Explanation:** NP-Complete is a subset of NP-Hard ($NPC = NP \cap NP\text{-Hard}$). NP-Hard includes problems like the Halting Problem or TSP Optimization that aren't in NP.
+
+#### Q17. String matching using Finite Automata achieves what time complexity during the text matching phase?
+- (A) $O(n \cdot m)$
+- (B) $\Theta(n)$ strictly linear
+- (C) $O(n^2)$
+- (D) $O(\log n)$
+**Answer:** (B) $\Theta(n)$ strictly linear  
+**Explanation:** Once the transition table is built, the automaton processes each text character in a single pass in $\Theta(n)$ time with zero backtracking.
 
 ---

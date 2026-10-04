@@ -2,7 +2,7 @@
 
 **Subject:** Python with Django  
 **Pattern:** Multiple Choice Questions (MCQs) with Detailed Explanations  
-**Coverage:** 100% Exhaustive Topic Coverage across Units 1 to 3  
+**Coverage:** 100% Exhaustive Topic Coverage across ALL Units (Units 1 to 3)  
 
 ---
 
@@ -68,11 +68,19 @@ print(add(3, 4))
 **Answer:** (B) `__enter__` and `__exit__`  
 **Explanation:** The `with` statement calls `__enter__()` when entering the context block and `__exit__()` when exiting, guaranteeing resource cleanup even if exceptions occur.
 
+#### Q7. Which Python collection type is mutable, unordered, and contains unique hashable elements only?
+- (A) List
+- (B) Tuple
+- (C) Dictionary
+- (D) Set
+**Answer:** (D) Set  
+**Explanation:** Sets in Python are mutable, unordered collections of distinct, hashable elements.
+
 ---
 
 ## 🌐 Unit 2: Django Architecture, Views & Templates
 
-#### Q7. In Django's MVT (Model-View-Template) architecture, what is the exact role of the "View"?
+#### Q8. In Django's MVT (Model-View-Template) architecture, what is the exact role of the "View"?
 - (A) Renders HTML layout and CSS styling directly in the browser.
 - (B) Contains business logic that fetches data from Models, processes HTTP requests, and returns HTTP responses or renders Templates.
 - (C) Defines database schemas and SQL tables.
@@ -80,7 +88,7 @@ print(add(3, 4))
 **Answer:** (B) Contains business logic that fetches data from Models, processes HTTP requests, and returns HTTP responses or renders Templates.  
 **Explanation:** Model = Data layer, View = Business logic controller, Template = Presentation UI layer.
 
-#### Q8. What is the correct sequence of commands to apply model schema changes to the database in Django?
+#### Q9. What is the correct sequence of commands to apply model schema changes to the database in Django?
 - (A) `python manage.py migrate` then `python manage.py makemigrations`
 - (B) `python manage.py makemigrations` then `python manage.py migrate`
 - (C) `python manage.py runserver` then `python manage.py dbupdate`
@@ -88,7 +96,7 @@ print(add(3, 4))
 **Answer:** (B) `python manage.py makemigrations` then `python manage.py migrate`  
 **Explanation:** `makemigrations` generates migration scripts based on `models.py`, and `migrate` applies those migration scripts to the database.
 
-#### Q9. Which file in a Django project directory contains global project configurations, including `INSTALLED_APPS`, `DATABASES`, `MIDDLEWARE`, and `TEMPLATES`?
+#### Q10. Which file in a Django project directory contains global project configurations, including `INSTALLED_APPS`, `DATABASES`, `MIDDLEWARE`, and `TEMPLATES`?
 - (A) `urls.py`
 - (B) `models.py`
 - (C) `settings.py`
@@ -96,7 +104,7 @@ print(add(3, 4))
 **Answer:** (C) `settings.py`  
 **Explanation:** `settings.py` is the central configuration module for a Django application environment.
 
-#### Q10. In Django Template Language (DTL), which tag is used to inherit layout structure from a parent template?
+#### Q11. In Django Template Language (DTL), which tag is used to inherit layout structure from a parent template?
 - (A) `{% include 'header.html' %}`
 - (B) `{% extends 'base.html' %}`
 - (C) `{% block content %}`
@@ -104,11 +112,19 @@ print(add(3, 4))
 **Answer:** (B) `{% extends 'base.html' %}`  
 **Explanation:** `{% extends %}` tells Django that the child template builds upon a parent template layout.
 
+#### Q12. In Django, Class-Based Views (CBVs) like `ListView` or `DetailView` are mapped in `urls.py` using which method?
+- (A) `views.MyView.render()`
+- (B) `views.MyView.as_view()`
+- (C) `views.MyView.execute()`
+- (D) `views.MyView.dispatch()`
+**Answer:** (B) `views.MyView.as_view()`  
+**Explanation:** `as_view()` returns a callable view function that takes a request and dispatches to appropriate HTTP methods (e.g. `get()`, `post()`).
+
 ---
 
 ## 🗄️ Unit 3: Django ORM, Models & Database Operations
 
-#### Q11. To optimize Django ORM queries and solve the N+1 Query Problem for a `ForeignKey` relationship, which method performs a SQL `JOIN` in a single query?
+#### Q13. To optimize Django ORM queries and solve the N+1 Query Problem for a `ForeignKey` relationship, which method performs a SQL `JOIN` in a single query?
 - (A) `prefetch_related()`
 - (B) `select_related()`
 - (C) `raw()`
@@ -116,7 +132,7 @@ print(add(3, 4))
 **Answer:** (B) `select_related()`  
 **Explanation:** `select_related()` works on single-valued relationships (`ForeignKey`, `OneToOneField`) via a SQL `JOIN` in 1 query. `prefetch_related()` works on multi-valued relationships (`ManyToManyField`, reverse `ForeignKey`) using separate queries joined in Python.
 
-#### Q12. What is the difference between Django ORM's `filter()` and `get()` methods?
+#### Q14. What is the difference between Django ORM's `filter()` and `get()` methods?
 - (A) `filter()` returns a single model instance; `get()` returns a QuerySet.
 - (B) `filter()` returns a QuerySet containing zero, one, or multiple matching objects; `get()` returns a single model instance and raises `DoesNotExist` or `MultipleObjectsReturned` if the query doesn't yield exactly 1 match.
 - (C) `get()` executes raw SQL; `filter()` does not.
@@ -124,7 +140,7 @@ print(add(3, 4))
 **Answer:** (B) `filter()` returns a QuerySet containing zero, one, or multiple matching objects; `get()` returns a single model instance and raises `DoesNotExist` or `MultipleObjectsReturned` if the query doesn't yield exactly 1 match.  
 **Explanation:** `filter()` always returns a list-like `QuerySet`. `get()` expects exactly one match and throws exceptions if 0 or >1 items match.
 
-#### Q13. In a Django model `ForeignKey` field definition, what does `on_delete=models.CASCADE` specify?
+#### Q15. In a Django model `ForeignKey` field definition, what does `on_delete=models.CASCADE` specify?
 - (A) Prevents deletion of the referenced parent object.
 - (B) Automatically deletes child objects when the referenced parent object is deleted.
 - (C) Sets the foreign key value to `NULL` upon parent deletion.
@@ -132,12 +148,20 @@ print(add(3, 4))
 **Answer:** (B) Automatically deletes child objects when the referenced parent object is deleted.  
 **Explanation:** `CASCADE` simulates SQL cascading deletes, automatically removing all related child rows when the parent instance is deleted.
 
-#### Q14. In Django Admin customization, which attribute in a `ModelAdmin` class specifies which columns to display in the change list view?
+#### Q16. In Django Admin customization, which attribute in a `ModelAdmin` class specifies which columns to display in the change list view?
 - (A) `search_fields`
 - (B) `list_filter`
 - (C) `list_display`
 - (D) `ordering`
 **Answer:** (C) `list_display`  
 **Explanation:** `list_display` is a tuple/list of field names to display as table columns in the Django admin changelist view.
+
+#### Q17. Which `on_delete` option in a Django `ForeignKey` prevents the parent object from being deleted if any related child objects exist?
+- (A) `models.CASCADE`
+- (B) `models.PROTECT`
+- (C) `models.SET_NULL`
+- (D) `models.DO_NOTHING`
+**Answer:** (B) `models.PROTECT`  
+**Explanation:** `models.PROTECT` raises `ProtectedError` (a subclass of `django.db.IntegrityError`) to prevent deletion of the parent object if child objects reference it.
 
 ---

@@ -2,7 +2,7 @@
 
 **Subject:** Computer Networks  
 **Pattern:** Multiple Choice Questions (MCQs) with Detailed Explanations  
-**Coverage:** 100% Exhaustive Topic Coverage across Units 1 to 5  
+**Coverage:** 100% Exhaustive Topic Coverage across ALL Units (Units 1 to 5)  
 
 ---
 
@@ -56,11 +56,27 @@
 **Answer:** (B) 48 bits (6 bytes)  
 **Explanation:** MAC addresses are 48-bit (6-byte) hexadecimal numbers uniquely assigned by IEEE and hardware vendors.
 
+#### Q7. Which transmission mode allows communication in both directions simultaneously (e.g., telephone conversation)?
+- (A) Simplex
+- (B) Half-Duplex
+- (C) Full-Duplex
+- (D) Multiplex
+**Answer:** (C) Full-Duplex  
+**Explanation:** Full-duplex mode allows data transmission in both directions concurrently. Half-duplex allows both directions but one at a time (e.g., walkie-talkie); Simplex is one-way only.
+
+#### Q8. In Frequency Division Multiplexing (FDM), what is inserted between adjacent sub-carrier signal channels to prevent cross-talk interference?
+- (A) Guard Bands
+- (B) Time Slots
+- (C) Checksums
+- (D) Preamble bits
+**Answer:** (A) Guard Bands  
+**Explanation:** Guard bands are unused frequency strips separating allocated channels in FDM to prevent signal overlap and cross-talk.
+
 ---
 
 ## 📡 Unit 3 & 4: Transmission Media, IP Addressing, Routing & Error Control
 
-#### Q7. What is the network address and broadcast address for the IP address `192.168.10.45/27`?
+#### Q9. What is the network address and broadcast address for the IP address `192.168.10.45/27`?
 - (A) Network: `192.168.10.0`, Broadcast: `192.168.10.31`
 - (B) Network: `192.168.10.32`, Broadcast: `192.168.10.63`
 - (C) Network: `192.168.10.32`, Broadcast: `192.168.10.255`
@@ -68,7 +84,7 @@
 **Answer:** (B) Network: `192.168.10.32`, Broadcast: `192.168.10.63`  
 **Explanation:** `/27` has a block size of $256 - 224 = 32$. Subnet boundaries are `0..31`, `32..63`, etc. For IP `.45`, the network address is `.32` and the broadcast address is `.63`.
 
-#### Q8. Which routing protocol uses the Bellman-Ford Distance Vector algorithm and limits paths to a maximum of 15 hops?
+#### Q10. Which routing protocol uses the Bellman-Ford Distance Vector algorithm and limits paths to a maximum of 15 hops?
 - (A) OSPF
 - (B) BGP
 - (C) RIP (Routing Information Protocol)
@@ -76,7 +92,7 @@
 **Answer:** (C) RIP (Routing Information Protocol)  
 **Explanation:** RIP is a Distance Vector routing protocol with a hop limit of 15; 16 hops represents infinity (unreachable).
 
-#### Q9. Which interior gateway routing protocol uses Dijkstra's Shortest Path First (SPF) algorithm and Link-State Advertisements (LSAs)?
+#### Q11. Which interior gateway routing protocol uses Dijkstra's Shortest Path First (SPF) algorithm and Link-State Advertisements (LSAs)?
 - (A) RIP
 - (B) OSPF
 - (C) BGP
@@ -84,7 +100,7 @@
 **Answer:** (B) OSPF  
 **Explanation:** OSPF (Open Shortest Path First) is a link-state routing protocol that builds a complete topology map of the area and executes Dijkstra's algorithm to compute shortest paths.
 
-#### Q10. To detect and correct a single-bit error using Hamming Code on a $d$-bit dataword with $p$ parity bits, what inequality must be satisfied?
+#### Q12. To detect and correct a single-bit error using Hamming Code on a $d$-bit dataword with $p$ parity bits, what inequality must be satisfied?
 - (A) $2^p \ge d + p + 1$
 - (B) $2^p \le d + p$
 - (C) $p^2 \ge d + 1$
@@ -92,7 +108,7 @@
 **Answer:** (A) $2^p \ge d + p + 1$  
 **Explanation:** $2^p$ states must be sufficient to indicate all $d + p$ bit error positions plus the no-error state ($+1$).
 
-#### Q11. In Cyclic Redundancy Check (CRC), if the generator polynomial $G(x) = x^3 + x + 1$ (binary `1011`), how many 0 bits must be appended to the dataword before division?
+#### Q13. In Cyclic Redundancy Check (CRC), if the generator polynomial $G(x) = x^3 + x + 1$ (binary `1011`), how many 0 bits must be appended to the dataword before division?
 - (A) 4 bits
 - (B) 3 bits
 - (C) 2 bits
@@ -100,7 +116,7 @@
 **Answer:** (B) 3 bits  
 **Explanation:** If the generator polynomial has degree $k = 3$ (length 4 bits), exactly $k = 3$ zeros are appended to the dataword before modulo-2 division.
 
-#### Q12. Which fiber optic connector features a push-pull latching mechanism and is widely used in Fast Ethernet / Gigabit datacenter links?
+#### Q14. Which fiber optic connector features a push-pull latching mechanism and is widely used in Fast Ethernet / Gigabit datacenter links?
 - (A) BNC Connector
 - (B) RJ-45 Connector
 - (C) SC (Subscriber Connector) / LC (Lucent Connector)
@@ -108,11 +124,27 @@
 **Answer:** (C) SC (Subscriber Connector) / LC (Lucent Connector)  
 **Explanation:** SC and LC are square push-pull optical fiber connectors. BNC is coaxial; RJ-45 is copper UTP.
 
+#### Q15. Which field in the IPv4 header prevents packets from circulating endlessly in routing loops by being decremented by 1 at each router hop?
+- (A) Version
+- (B) Type of Service (ToS)
+- (C) Time To Live (TTL)
+- (D) Header Checksum
+**Answer:** (C) Time To Live (TTL)  
+**Explanation:** Every router that forwards an IPv4 datagram decrements its TTL field by 1. When TTL reaches 0, the router drops the packet and sends an ICMP Time Exceeded message back.
+
+#### Q16. Which network device operates at OSI Layer 2 (Data Link Layer) and uses a MAC address table to forward frames selectively to specific destination ports?
+- (A) Hub
+- (B) Repeater
+- (C) Switch
+- (D) Router
+**Answer:** (C) Switch  
+**Explanation:** Switches operate at Layer 2, maintaining a MAC address table to forward frames only to the port where the destination MAC resides. Hubs (Layer 1) broadcast to all ports.
+
 ---
 
 ## 🔒 Unit 5: Application Protocols, Security & CLI Diagnostic Tools
 
-#### Q13. What is the primary difference between TCP and UDP headers?
+#### Q17. What is the primary difference between TCP and UDP headers?
 - (A) TCP header is fixed at 8 bytes; UDP header is variable (20-60 bytes).
 - (B) TCP header is 20–60 bytes with Sequence/Ack numbers; UDP header is fixed at 8 bytes without connection tracking.
 - (C) UDP contains port numbers while TCP does not.
@@ -120,7 +152,7 @@
 **Answer:** (B) TCP header is 20–60 bytes with Sequence/Ack numbers; UDP header is fixed at 8 bytes without connection tracking.  
 **Explanation:** TCP provides reliable, connection-oriented service with a 20–60 byte header. UDP provides lightweight, connectionless service with a minimal 8-byte header.
 
-#### Q14. Which CLI command uses ICMP Echo Requests and Time-To-Live (TTL) expiration messages to map out the hop path to a destination host?
+#### Q18. Which CLI command uses ICMP Echo Requests and Time-To-Live (TTL) expiration messages to map out the hop path to a destination host?
 - (A) `ping`
 - (B) `netstat`
 - (C) `traceroute` / `tracert`
@@ -128,7 +160,7 @@
 **Answer:** (C) `traceroute` / `tracert`  
 **Explanation:** `traceroute` sends packets with incrementing TTL values ($1, 2, 3 \dots$). Intermediate routers discard the packet when TTL hits 0 and send ICMP Time Exceeded messages back, revealing each hop.
 
-#### Q15. Which Application Layer protocol operates over TCP ports 20 and 21, using port 21 for control commands and port 20 for data transfer?
+#### Q19. Which Application Layer protocol operates over TCP ports 20 and 21, using port 21 for control commands and port 20 for data transfer?
 - (A) HTTP
 - (B) SMTP
 - (C) FTP (File Transfer Protocol)
@@ -136,7 +168,7 @@
 **Answer:** (C) FTP (File Transfer Protocol)  
 **Explanation:** FTP uses dual TCP connections: Port 21 for out-of-band control commands and Port 20 for active data transfer.
 
-#### Q16. What type of firewall inspects stateful connection tables, tracking TCP 3-way handshakes, sequence numbers, and packet flags across sessions?
+#### Q20. What type of firewall inspects stateful connection tables, tracking TCP 3-way handshakes, sequence numbers, and packet flags across sessions?
 - (A) Packet Filtering Firewall
 - (B) Stateful Inspection Firewall
 - (C) Circuit-Level Gateway
@@ -144,7 +176,7 @@
 **Answer:** (B) Stateful Inspection Firewall  
 **Explanation:** Stateful inspection firewalls maintain a dynamic connection state table to ensure incoming traffic matches legitimate, established outgoing sessions.
 
-#### Q17. In the Domain Name System (DNS), which Resource Record (RR) type maps a domain name directly to an IPv6 128-bit address?
+#### Q21. In the Domain Name System (DNS), which Resource Record (RR) type maps a domain name directly to an IPv6 128-bit address?
 - (A) A Record
 - (B) CNAME Record
 - (C) AAAA Record
@@ -152,12 +184,20 @@
 **Answer:** (C) AAAA Record  
 **Explanation:** `A` records map hostname to IPv4 (32-bit); `AAAA` records map hostname to IPv6 (128-bit). `MX` is Mail Exchange; `CNAME` is Canonical Name alias.
 
-#### Q18. Which protocol is used by email clients to retrieve messages from a mail server while synchronizing folder states across multiple devices?
+#### Q22. Which protocol is used by email clients to retrieve messages from a mail server while synchronizing folder states across multiple devices?
 - (A) SMTP (Port 25)
 - (B) POP3 (Port 110)
 - (C) IMAP (Port 143)
 - (D) SNMP (Port 161)
 **Answer:** (C) IMAP (Port 143)  
 **Explanation:** IMAP leaves messages on the server and synchronizes folder state across devices. POP3 downloads messages to a single local device. SMTP transfers mail between servers.
+
+#### Q23. What is the TCP 3-way handshake sequence executed when establishing a reliable connection between a client and server?
+- (A) SYN $\to$ SYN-ACK $\to$ ACK
+- (B) FIN $\to$ ACK $\to$ FIN-ACK
+- (C) RST $\to$ SYN $\to$ ACK
+- (D) ACK $\to$ SYN $\to$ SYN-ACK
+**Answer:** (A) SYN $\to$ SYN-ACK $\to$ ACK  
+**Explanation:** Client sends SYN to request connection; Server responds with SYN-ACK; Client sends ACK to establish full-duplex TCP session.
 
 ---

@@ -2,7 +2,7 @@
 
 **Subject:** Artificial Intelligence  
 **Pattern:** Multiple Choice Questions (MCQs) with Detailed Explanations  
-**Coverage:** 100% Exhaustive Topic Coverage across Units 1, 2, and 3  
+**Coverage:** 100% Exhaustive Topic Coverage across ALL Units (Units 1, 2, and 3)  
 
 ---
 
@@ -56,11 +56,19 @@
 **Answer:** (B) The environment does not change with time, but the agent's performance score does.  
 **Explanation:** If the environment itself doesn't change over time but the agent's performance score decreases as time passes (e.g., timed chess), it is semi-dynamic. If the world changes during deliberation, it is dynamic.
 
+#### Q7. Which view of AI evaluates systems based on whether they produce optimal actions regardless of human cognitive limitations?
+- (A) Thinking Humanly
+- (B) Acting Humanly (Turing Test)
+- (C) Thinking Rationally (Laws of Thought)
+- (D) Acting Rationally (Rational Agent Approach)
+**Answer:** (D) Acting Rationally (Rational Agent Approach)  
+**Explanation:** The Rational Agent approach focuses on acting so as to achieve the best outcome or best expected outcome given the available information.
+
 ---
 
 ## 🔍 Unit 2: Problem Solving, Search Techniques & Game Playing
 
-#### Q7. If $b$ is the branching factor and $d$ is the depth of the shallowest goal node, what is the space complexity of Breadth-First Search (BFS)?
+#### Q8. If $b$ is the branching factor and $d$ is the depth of the shallowest goal node, what is the space complexity of Breadth-First Search (BFS)?
 - (A) $O(b \cdot d)$
 - (B) $O(b^d)$
 - (C) $O(d^b)$
@@ -68,7 +76,7 @@
 **Answer:** (B) $O(b^d)$  
 **Explanation:** BFS stores all generated nodes in memory within its frontier queue, resulting in exponential space complexity $O(b^d)$.
 
-#### Q8. Under what condition is the $A^*$ Search algorithm guaranteed to be optimal when conducting a Tree Search?
+#### Q9. Under what condition is the $A^*$ Search algorithm guaranteed to be optimal when conducting a Tree Search?
 - (A) The heuristic function $h(n)$ is consistent ($h(n) \le c(n, a, n') + h(n')$).
 - (B) The heuristic function $h(n)$ is admissible ($0 \le h(n) \le h^*(n)$).
 - (C) The step cost is uniform across all edges.
@@ -76,7 +84,7 @@
 **Answer:** (B) The heuristic function $h(n)$ is admissible ($0 \le h(n) \le h^*(n)$).  
 **Explanation:** Admissibility means $h(n)$ never overestimates the actual cost to reach the goal. For Tree Search, admissibility guarantees $A^*$ optimality.
 
-#### Q9. For $A^*$ Graph Search to be optimal without reopening closed nodes, the heuristic function $h(n)$ must be:
+#### Q10. For $A^*$ Graph Search to be optimal without reopening closed nodes, the heuristic function $h(n)$ must be:
 - (A) Admissible only
 - (B) Consistent (Monotonic), satisfying $h(n) \le c(n, a, n') + h(n')$
 - (C) $h(n) = 0$ for all nodes
@@ -84,7 +92,7 @@
 **Answer:** (B) Consistent (Monotonic), satisfying $h(n) \le c(n, a, n') + h(n')$  
 **Explanation:** Consistency ensures $f(n) = g(n) + h(n)$ is non-decreasing along any path, guaranteeing that when a node is expanded, its optimal path has been found.
 
-#### Q10. In Alpha-Beta Pruning, an Alpha cutoff occurs at a MIN node when:
+#### Q11. In Alpha-Beta Pruning, an Alpha cutoff occurs at a MIN node when:
 - (A) $\alpha \ge \beta$
 - (B) $\alpha < \beta$
 - (C) $\alpha = 0$
@@ -92,7 +100,7 @@
 **Answer:** (A) $\alpha \ge \beta$  
 **Explanation:** Alpha ($\alpha$) is MAX's best guaranteed score; Beta ($\beta$) is MIN's best guaranteed score. When $\alpha \ge \beta$, the current branch cannot influence the final decision, so it is pruned.
 
-#### Q11. Which local search failure mode occurs when the algorithm reaches a flat area of the state space landscape where all neighbor states have the exact same heuristic evaluation?
+#### Q12. Which local search failure mode occurs when the algorithm reaches a flat area of the state space landscape where all neighbor states have the exact same heuristic evaluation?
 - (A) Local Maximum
 - (B) Ridge
 - (C) Plateau / Shoulder
@@ -100,7 +108,7 @@
 **Answer:** (C) Plateau / Shoulder  
 **Explanation:** A plateau is a flat region where $h(n)$ is constant, causing pure hill-climbing to take random walks or get stuck.
 
-#### Q12. In Constraint Satisfaction Problems (CSPs), the AC-3 algorithm enforces Arc Consistency over variable pair $(X_i, X_j)$ by:
+#### Q13. In Constraint Satisfaction Problems (CSPs), the AC-3 algorithm enforces Arc Consistency over variable pair $(X_i, X_j)$ by:
 - (A) Removing values from domain $D_i$ that have no allowed value in $D_j$ according to constraint $R_{ij}$.
 - (B) Assigning random values to $X_i$ and $X_j$.
 - (C) Merging domains $D_i$ and $D_j$.
@@ -108,7 +116,7 @@
 **Answer:** (A) Removing values from domain $D_i$ that have no allowed value in $D_j$ according to constraint $R_{ij}$.  
 **Explanation:** Arc consistency $X_i \to X_j$ ensures that for every value $x \in D_i$, there exists at least one value $y \in D_j$ satisfying the constraint.
 
-#### Q13. Iterative Deepening DFS (IDDFS) combines which two properties of BFS and DFS?
+#### Q14. Iterative Deepening DFS (IDDFS) combines which two properties of BFS and DFS?
 - (A) Exponential space of BFS and sub-optimal search of DFS
 - (B) Completeness & Optimality of BFS with $O(b \cdot d)$ linear space memory of DFS
 - (C) $O(1)$ space of BFS and infinite loop vulnerability of DFS
@@ -116,11 +124,27 @@
 **Answer:** (B) Completeness & Optimality of BFS with $O(b \cdot d)$ linear space memory of DFS  
 **Explanation:** IDDFS repeatedly applies depth-limited DFS with increasing depth limits ($0, 1, 2 \dots d$). It is complete and optimal like BFS, but uses linear $O(b \cdot d)$ memory like DFS.
 
+#### Q15. Uniform Cost Search (UCS) expands nodes in order of:
+- (A) Lowest heuristic estimate $h(n)$
+- (B) Highest evaluation function $f(n)$
+- (C) Lowest path cost $g(n)$ from the start node
+- (D) Shallowest tree depth
+**Answer:** (C) Lowest path cost $g(n)$ from the start node  
+**Explanation:** UCS expands the frontier node with the lowest path cost $g(n)$, making it equivalent to Dijkstra's algorithm on a search graph.
+
+#### Q16. With optimal move ordering, Alpha-Beta Pruning reduces the effective branching factor from $b$ to $\sqrt{b}$, reducing total search time complexity to:
+- (A) $O(b^m)$
+- (B) $O(b^{m/2})$
+- (C) $O(m^b)$
+- (D) $O(b \cdot m)$
+**Answer:** (B) $O(b^{m/2})$  
+**Explanation:** Perfect move ordering allows Alpha-Beta pruning to evaluate only $O(b^{m/2})$ nodes instead of $O(b^m)$, effectively doubling the search depth achievable in the same time.
+
 ---
 
 ## 🧠 Unit 3: Knowledge Representation, Logic, Expert Systems & Uncertainty
 
-#### Q14. What is the result of converting the First-Order Logic sentence $\forall x \exists y \, \text{Loves}(x, y)$ into Conjunctive Normal Form (CNF) using Skolemization?
+#### Q17. What is the result of converting the First-Order Logic sentence $\forall x \exists y \, \text{Loves}(x, y)$ into Conjunctive Normal Form (CNF) using Skolemization?
 - (A) $\text{Loves}(x, y)$
 - (B) $\text{Loves}(x, F(x))$
 - (C) $\text{Loves}(F(y), y)$
@@ -128,7 +152,7 @@
 **Answer:** (B) $\text{Loves}(x, F(x))$  
 **Explanation:** Since existential quantifier $\exists y$ follows universal quantifier $\forall x$, $y$ is replaced by a Skolem function $F(x)$ depending on $x$.
 
-#### Q15. In a Frame-Based Knowledge Representation system, what is a "Daemon"?
+#### Q18. In a Frame-Based Knowledge Representation system, what is a "Daemon"?
 - (A) A background OS multi-threading process.
 - (B) A procedural attachment (e.g., `if-needed`, `if-added`) that automatically executes code when a slot value is accessed or modified.
 - (C) An unassigned slot value representing `NULL`.
@@ -136,7 +160,7 @@
 **Answer:** (B) A procedural attachment (e.g., `if-needed`, `if-added`) that automatically executes code when a slot value is accessed or modified.  
 **Explanation:** Daemons in frame systems are procedural code attachments triggered by actions like reading (`if-needed`) or writing (`if-added`) to a slot.
 
-#### Q16. Which conceptual dependency (CD) primitive action represents the transfer of mental information into memory or consciousness (e.g., "thinking" or "deciding")?
+#### Q19. Which conceptual dependency (CD) primitive action represents the transfer of mental information into memory or consciousness (e.g., "thinking" or "deciding")?
 - (A) ATRANS
 - (B) MTRANS
 - (C) MBUILD
@@ -144,7 +168,7 @@
 **Answer:** (C) MBUILD  
 **Explanation:** In Roger Schank's CD theory, MBUILD represents building new mental information (deciding), whereas MTRANS represents transferring information (telling).
 
-#### Q17. In Roger Schank's Conceptual Dependency (CD) theory, which primitive action represents the transfer of physical possession of an object (e.g., "giving" or "buying")?
+#### Q20. In Roger Schank's Conceptual Dependency (CD) theory, which primitive action represents the transfer of physical possession of an object (e.g., "giving" or "buying")?
 - (A) PTRANS
 - (B) ATRANS
 - (C) MTRANS
@@ -152,7 +176,7 @@
 **Answer:** (B) ATRANS  
 **Explanation:** ATRANS represents transfer of an abstract relationship such as ownership/possession (e.g., give, take, buy). PTRANS represents changing physical location.
 
-#### Q18. In Bayesian Networks, two variables $A$ and $B$ are conditionally independent given $C$ if:
+#### Q21. In Bayesian Networks, two variables $A$ and $B$ are conditionally independent given $C$ if:
 - (A) $P(A, B \mid C) = P(A \mid C) \cdot P(B \mid C)$
 - (B) $P(A \mid B) = P(B \mid A)$
 - (C) $P(A, B) = P(A) \cdot P(B)$
@@ -160,7 +184,7 @@
 **Answer:** (A) $P(A, B \mid C) = P(A \mid C) \cdot P(B \mid C)$  
 **Explanation:** Conditional independence means knowing $B$ provides no additional information about $A$ once $C$ is known.
 
-#### Q19. In Fuzzy Logic, what does the process of "Defuzzification" accomplish?
+#### Q22. In Fuzzy Logic, what does the process of "Defuzzification" accomplish?
 - (A) Converts crisp numbers into fuzzy set membership grades.
 - (B) Converts fuzzy set membership output values into a single crisp numerical value (e.g., using Centroid Method).
 - (C) Eliminates logical contradictions in rules.
@@ -168,12 +192,28 @@
 **Answer:** (B) Converts fuzzy set membership output values into a single crisp numerical value (e.g., using Centroid Method).  
 **Explanation:** Defuzzification maps the fuzzy output set generated by the rule evaluation engine back to a crisp control signal.
 
-#### Q20. In Expert Systems, Forward Chaining is a data-driven reasoning approach that starts from:
+#### Q23. In Expert Systems, Forward Chaining is a data-driven reasoning approach that starts from:
 - (A) Known facts in working memory and applies inference rules to derive new facts until a goal is reached.
 - (B) A hypothesis goal and works backward to check supporting facts.
 - (C) Random probabilities using Monte Carlo search.
 - (D) Genetic mutations of rule bases.
 **Answer:** (A) Known facts in working memory and applies inference rules to derive new facts until a goal is reached.  
 **Explanation:** Forward chaining starts with known data/facts in working memory and triggers rules whose antecedents match, driving forward to discover conclusions. Backward chaining is goal-driven.
+
+#### Q24. In Script Representation, which component describes the initial conditions that must be true for the script to be activated?
+- (A) Track
+- (B) Entry Conditions
+- (C) Props
+- (D) Scenes
+**Answer:** (B) Entry Conditions  
+**Explanation:** Entry conditions are preconditions that must be satisfied before the events described in the script can take place (e.g., customer is hungry and has money for Restaurant script).
+
+#### Q25. What is the Match-Resolve-Act cycle in a Rule-Based Expert System's inference engine?
+- (A) Matching rules against facts, resolving conflicts to pick 1 rule, and executing the rule's action.
+- (B) Matching user inputs to HTML forms, resolving CSS, and acting on database queries.
+- (C) Resolving compilation errors in C++ code.
+- (D) Matching neural network weights to target labels.
+**Answer:** (A) Matching rules against facts, resolving conflicts to pick 1 rule, and executing the rule's action.  
+**Explanation:** The inference engine repeatedly matches working memory facts against IF conditions (Match), selects one rule from the conflict set (Resolve), and executes its THEN action (Act).
 
 ---
