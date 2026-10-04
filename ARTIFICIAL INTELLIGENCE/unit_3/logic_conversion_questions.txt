@@ -1,0 +1,97 @@
+PROPOSITIONAL LOGIC - EASY (Convert statement to symbolic form)
+
+1. "It is sunny and warm." (Let P: it is sunny, Q: it is warm)
+
+2. "She is either at home or at work." (Let P: she is at home, Q: she is at work)
+
+3. "It is not cold." (Let P: it is cold)
+
+4. "If it rains, then the ground gets wet." (Let P: it rains, Q: the ground gets wet)
+
+5. "I will pass the exam if and only if I study." (Let P: I pass the exam, Q: I study)
+
+PROPOSITIONAL LOGIC - MEDIUM (Convert statement to symbolic form)
+
+6. "If you finish your homework and clean your room, then you can watch TV." (Let P: you finish your homework, Q: you clean your room, R: you can watch TV)
+
+7. "Either it is not raining, or the match will be cancelled." (Let P: it is raining, Q: the match will be cancelled)
+
+8. "You cannot enter unless you have a ticket." (Let P: you enter, Q: you have a ticket)
+
+9. "If the alarm rings, then either the power is on or the battery is working." (Let P: the alarm rings, Q: the power is on, R: the battery is working)
+
+10. "It is not the case that both the printer is broken and the ink is empty." (Let P: the printer is broken, Q: the ink is empty)
+
+PREDICATE LOGIC - EASY (Convert statement to symbolic form)
+
+11. "All birds can fly." (Let B(x): x is a bird, F(x): x can fly)
+
+12. "Some students are intelligent." (Let S(x): x is a student, I(x): x is intelligent)
+
+13. "No cats are dogs." (Let C(x): x is a cat, D(x): x is a dog)
+
+14. "There exists a number that is negative." (Let N(x): x is a negative number)
+
+15. "Every dog barks." (Let D(x): x is a dog, B(x): x barks)
+
+PREDICATE LOGIC - MEDIUM (Convert statement to symbolic form)
+
+16. "Every student who studies hard passes the exam." (Let S(x): x is a student, H(x): x studies hard, P(x): x passes the exam)
+
+17. "Some animals are mammals but not all mammals are animals that fly." (Let A(x): x is an animal, M(x): x is a mammal, F(x): x flies)
+
+18. "For every number, there exists a number greater than it." (Let domain be numbers, G(x, y): y is greater than x)
+
+19. "Not all students like mathematics." (Let S(x): x is a student, L(x): x likes mathematics)
+
+20. "There is a student who has taken every course." (Let S(x): x is a student, C(y): y is a course, T(x, y): x has taken y)
+
+==================== ANSWER KEY ====================
+
+PROPOSITIONAL LOGIC - EASY
+
+1. P AND Q
+
+2. P OR Q
+
+3. NOT P
+
+4. P -> Q
+
+5. P <-> Q
+
+PROPOSITIONAL LOGIC - MEDIUM
+
+6. (P AND Q) -> R
+
+7. (NOT P) OR Q
+
+8. Q -> P, or equivalently NOT P -> NOT Q (you enter only if you have a ticket)
+
+9. P -> (Q OR R)
+
+10. NOT (P AND Q)
+
+PREDICATE LOGIC - EASY
+
+11. For all x, (B(x) -> F(x))
+
+12. There exists x such that (S(x) AND I(x))
+
+13. For all x, (C(x) -> NOT D(x))
+
+14. There exists x such that N(x)
+
+15. For all x, (D(x) -> B(x))
+
+PREDICATE LOGIC - MEDIUM
+
+16. For all x, ((S(x) AND H(x)) -> P(x))
+
+17. (There exists x such that (A(x) AND M(x))) AND (there exists x such that (M(x) AND NOT F(x)))
+
+18. For all x, there exists y such that G(x, y)
+
+19. There exists x such that (S(x) AND NOT L(x))
+
+20. There exists x such that (S(x) AND (for all y, (C(y) -> T(x, y))))

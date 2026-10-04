@@ -1,0 +1,255 @@
+--------------------------------------------------------------------
+SECTION A: PROPOSITIONAL LOGIC
+--------------------------------------------------------------------
+
+1. Define "Proposition" and "Logic" separately, and explain how
+together they form Propositional Logic.
+
+2. Differentiate between an Atomic statement and a
+   Complex/Compound statement, with one example of each.
+
+3. List all 5 logical connectives used in Propositional Logic
+   along with their symbols and the operator name they represent.
+
+4. Translate the following statement into mathematical logic:
+   "You can enter the library if you have a valid ID card and it
+   is not a public holiday."
+
+5. Translate the following statement into mathematical logic:
+   "The alarm will ring if and only if the door is opened or a
+   window is broken."
+
+6. Construct the complete truth table for the expression:
+   P -> (q ^ ~r)
+
+7. State the rule for calculating the minimum number of columns
+   and the exact number of rows in a truth table. Apply this rule
+   for a statement containing 4 variables.
+
+8. Explain, with a truth table, why an Implication (->) is
+   considered False in only ONE specific case.
+
+9. Given P = "It is raining" and q = "I will carry an umbrella",
+   write the mathematical logic for: "It is not the case that it
+   is raining and I am not carrying an umbrella."
+
+10. Explain the difference between Conjunction and Disjunction
+    with a truth table for each.
+
+
+--------------------------------------------------------------------
+SECTION B: PREDICATE LOGIC
+--------------------------------------------------------------------
+
+1. Define Predicate Logic and explain why it is called an
+   "extension" of Propositional Logic.
+
+2. Define the terms: Predicate, Variable, Domain, and Quantifier,
+   with one example each.
+
+3. Differentiate between the Universal Quantifier and the
+   Existential Quantifier, including which connective (-> or ^)
+   is conventionally used with each and why.
+
+4. Translate into predicate logic:
+   "All engineering students must submit their project before the
+   deadline."
+
+5. Translate into predicate logic:
+   "Some employees work from home or take a leave on Fridays."
+
+6. Translate into predicate logic:
+   "No reptiles are warm-blooded." (Hint: use negation with a
+   universal quantifier)
+
+7. Given the domain x = {1, 2, 3, 4, 5, 6}, evaluate whether the
+   statement "for all x, x is less than 10" is True or False, and
+   justify using the AND-across-domain rule for Universal
+   Quantifiers.
+
+8. Given the domain x = {2, 4, 5, 8}, evaluate whether the
+   statement "there exists an x such that x is odd" is True or
+   False, and justify using the OR-across-domain rule for
+   Existential Quantifiers.
+
+9. Convert the following predicate logic statement back into a
+   plain English sentence: 
+   forall x ( Student(x) -> Passed(x) )
+
+10. Explain, with an example, how propositional connectives
+    (^, v, ~) can be nested inside a quantified predicate logic
+    statement.
+
+
+--------------------------------------------------------------------
+SECTION C: SEMANTIC NETWORK
+--------------------------------------------------------------------
+
+1. Define Semantic Network and explain its two core building
+   blocks (Node and Arc).
+
+2. Differentiate between a Generic Node and an Individual
+   (Instance) Node, with one example each.
+
+3. Draw a Semantic Network diagram to represent the following
+   statements:
+   "A dog is a mammal", "A cat is a mammal", "All mammals are
+   animals", "Mammals have fur."
+
+4. Draw a Semantic Network diagram for the following facts about
+   a person named Priya:
+   "Priya is a teacher", "Priya teaches Mathematics",
+   "Priya works at Green Valley School", "Priya owns a car."
+
+5. Explain, with an example, how an "is-a" arc in a Semantic
+   Network can be translated into Predicate Logic.
+
+6. What is a "label arc" in a Semantic Network? Explain with an
+   example.
+
+7. List the advantages and disadvantages of representing
+   knowledge using a Semantic Network.
+
+8. Explain why traversing the entire graph is required to reach a
+   conclusion in a Semantic Network, and why this is considered a
+   drawback.
+
+9. Convert the Semantic Network diagram from Question 3 into a
+   set of plain English sentences (reverse translation).
+
+10. Compare Semantic Network with Predicate Logic in terms of how
+    each one represents relationships between objects.
+
+
+--------------------------------------------------------------------
+SECTION D: FRAME & SLOTS
+--------------------------------------------------------------------
+
+1. Define "Frame" and explain the concept of a "Slot" within it.
+
+2. List and explain all types of slots used in a Frame (Fixed,
+   Dynamic, Pointer, and Procedure slots), with one small example
+   for each.
+
+3. Explain the four triggers of a Procedure Slot: If-Needed,
+   If-Added, If-Changed, and If-Deleted, with a real-world example
+   for each.
+
+4. What is Frame Inheritance? Explain with an example how a child
+   frame can both inherit and override an attribute from its
+   parent frame.
+
+5. Design a Generic Frame named "Employee" with at least 5
+   meaningful slots (mention the slot type for each).
+
+6. Design an Instance Frame named "Employee-John" that inherits
+   from the "Employee" Generic Frame in Question 5, and fill in
+   actual values for each slot.
+
+7. Explain how a Pointer Slot is used to connect two different
+   frames together. Illustrate using a "Student" frame and a
+   "Classroom" frame.
+
+8. Write the complete text-format representation of a frame named
+   "Smartphone-X1" with at least 4 slots, including at least one
+   Fixed-Slot, one Dynamic-Slot, and one Procedure (If-Needed)
+   slot with its script.
+
+9. Compare Frame & Slots with Semantic Network — in what way are
+   they similar, and in what way are they different?
+
+10. Explain why Frames are considered a "structured and
+    object-oriented" way of representing knowledge.
+
+
+--------------------------------------------------------------------
+SECTION E: SCRIPT
+--------------------------------------------------------------------
+
+1. Define "Script" and explain why it is described as "similar to
+   Frame."
+
+2. List and explain the 5 components used to classify a Script
+   (Entry Condition, Roles, Props, Track, Result), with a small
+   example for each.
+
+3. Explain the concept of "Track" in a Script with an example
+   showing at least 2 different tracks of the same overall
+   script.
+
+4. Design a complete Script (with all 5 components and at least 4
+   scenes) for the situation: "Withdrawing money from a bank
+   ATM."
+
+5. Design a complete Script (with all 5 components and at least 4
+   scenes) for the situation: "Boarding a flight at an airport."
+
+6. List and explain any 6 Conceptual Dependency (CD) primitive
+   symbols used in Scripts, along with their meaning and one
+   example action for each.
+
+7. Translate the sentence "The passenger checks in their luggage
+   at the counter" into symbolic (CD) form using an appropriate
+   CD primitive.
+
+8. State the advantages and disadvantages of using Scripts to
+   represent knowledge.
+
+9. Explain, with an example, how a Script allows a system to
+   "infer" an unstated event that is not explicitly mentioned in a
+   sentence.
+
+10. Compare Script with Frame & Slots in terms of how each
+    represents time/sequence of events.
+
+
+--------------------------------------------------------------------
+SECTION F: FORWARD CHAINING & BACKWARD CHAINING
+--------------------------------------------------------------------
+
+1. Define Forward Chaining and Backward Chaining, and state the
+   basic direction of reasoning followed by each (data-driven vs.
+   goal-driven).
+
+2. Differentiate between Forward Chaining and Backward Chaining
+   using a comparison table covering at least 5 aspects (starting
+   point, approach, use case, speed, breadth/depth).
+
+3. Given the following rules and facts, apply Forward Chaining to
+   derive all possible conclusions, showing each step:
+     Rules: R1: IF A AND B THEN C
+            R2: IF C THEN D
+            R3: IF D AND E THEN F
+     Facts: A, B, E are True
+
+4. Given the same rules as Question 3, apply Backward Chaining to
+   prove the goal "F" is True, showing each step and sub-goal.
+
+5. Explain why Forward Chaining is also called a "data-driven"
+   reasoning technique, with a real-world example (such as a
+   medical diagnosis system or fault detection system).
+
+6. Explain why Backward Chaining is also called a "goal-driven"
+   reasoning technique, with a real-world example (such as a
+   Prolog-style query system).
+
+7. List at least 3 advantages and 3 disadvantages of Forward
+   Chaining.
+
+8. List at least 3 advantages and 3 disadvantages of Backward
+   Chaining.
+
+9. Explain the role of a "Rule Base" and a "Working Memory" (or
+   "Knowledge Base") in a rule-based inference system that uses
+   Forward/Backward Chaining.
+
+10. For the following knowledge base, determine which chaining
+    method (Forward or Backward) would be more efficient to answer
+    the specific query "Is X a mammal?", and justify your answer:
+      Rules: IF has-fur(X) THEN mammal(X)
+             IF mammal(X) AND eats-meat(X) THEN carnivore(X)
+      Facts: has-fur(Tom), eats-meat(Tom)
+
+====================================================================
+END OF ASSIGNMENT
+====================================================================
